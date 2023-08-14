@@ -40,30 +40,30 @@ const EVIDENCE = {
 };
 
 const ANSWER = {
-  "1000011": "Abbadon",
+  1000011: "Abbadon",
   "0001101": "Agash",
-  "1100010": "Boogy",
+  1100010: "Boogy",
   "0011001": "Demon",
   "0101100": "Deogen",
-  "1100100": "Goryo",
+  1100100: "Goryo",
   "0101010": "Guipo",
   "0000111": "Gul",
   "0010011": "Hantu",
   "0110010": "Iblis",
-  "1100001": "Jinn",
-  "1010001": "Mare",
+  1100001: "Jinn",
+  1010001: "Mare",
   "0001011": "Myling",
   "0111000": "Naamah",
-  "1000101": "Oni",
-  "1010100": "Onryo",
+  1000101: "Oni",
+  1010100: "Onryo",
   "0100110": "Poltergeist",
   "0101001": "Raiju",
   "0010101": "Revenant",
   "0011010": "Shade",
   "0010110": "Thaye",
-  "1001100": "Wraith",
-  "1010010": "Yokai",
-  "1101000": "Yurei",
+  1001100: "Wraith",
+  1010010: "Yokai",
+  1101000: "Yurei",
 };
 const GHOSTS = [
   ["Abbadon", "1000011"],
@@ -193,9 +193,10 @@ function disableButton() {
   // Turns icon red and disables onClick
   for (var i = 0; i < hold.length; i++) {
     if (hold[i] < 1) {
-      document.getElementById(EVIDENCE[i]).style.fill =
-        "rgba(234, 66, 29, 0.6)";
-      document.getElementById(EVIDENCE[i]).onclick = null;
+      const ELEMENT = document.getElementById(EVIDENCE[i]);
+      ELEMENT.classList.remove("inactive");
+      ELEMENT.classList.add("impossible");
+      ELEMENT.onclick = null;
     }
   }
 }
@@ -204,9 +205,10 @@ function disableButton() {
 function disableButtonFinal() {
   for (var i = 0; i < current.length; i++) {
     if (current[i] != 1) {
-      document.getElementById(EVIDENCE[i]).style.fill =
-        "rgba(234, 66, 29, 0.6)";
-      document.getElementById(EVIDENCE[i]).onclick = null;
+      const ELEMENT = document.getElementById(EVIDENCE[i]);
+      ELEMENT.classList.remove("inactive");
+      ELEMENT.classList.add("impossible");
+      ELEMENT.onclick = null;
     }
   }
 }
@@ -230,11 +232,11 @@ function checkEvidence(evidence) {
       temp.push(options[i]);
     }
   }
-  //console.log(temp)
   // Update icon to green and disable onClick
-  document.getElementById(EVIDENCE[evidence]).style.fill =
-    "rgba(50, 205, 50, 1)";
-  document.getElementById(EVIDENCE[evidence]).onclick = null;
+  const ELEMENT = document.getElementById(EVIDENCE[evidence]);
+  ELEMENT.classList.remove("inactive");
+  ELEMENT.classList.add("active");
+  ELEMENT.onclick = null;
   // On the second evidence
   if (evdCount === 2) {
     updateOptions();
@@ -257,5 +259,12 @@ function evidenceSelect(evidence) {
 
 // Reloads page to reset everything
 function reset() {
+  for(var i = 0; i < 7; i++){
+    const ELEMENT = document.getElementById(EVIDENCE[i]);
+    ELEMENT.classList.add("inactive");
+    ELEMENT.classList.remove("active");
+    ELEMENT.classList.remove("impossible");
+    document.getElementById("ghost-type").innerHTML = "Searching..."
+  }
   location.reload();
 }

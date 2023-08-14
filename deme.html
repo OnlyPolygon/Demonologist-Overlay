@@ -1,0 +1,63 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="widget.css" />
+    <script type="text/javascript" src="logic.js"></script>
+    <script type="text/javascript"></script>
+  </head>
+  <body bgcolor="black">
+    <div class="phas-dashboard text-left h-screen flex flex-col" id="phas-dashboard">
+      <div class="flex-row divider-width divider-color divider-type">
+
+        <div class="py-0.5 flex-grow" id="evidence-container">
+          <!-- <div class="flex flex-grow flex-col h-full"> -->
+          <div class="evidence-inner-container flex flex-grow flex-row flex-wrap justify-between">
+            <!-- EMF 5 SVG  -->
+            <div class="evidence-svg-container" id="EMF">
+              <img id="emf-svg" class="evidence inactive" src="img/EMF.svg" onclick="evidenceSelect(0)"/>
+            </div>
+
+            <div class="evidence-svg-container" id="ESG">
+              <!-- ESG SVG -->
+              <img id="esg-svg" class="evidence inactive" src="img/ESG.svg"onclick="evidenceSelect(1)"/>
+            </div>
+
+            <div class="evidence-svg-container" id="EASEL">
+              <!-- EASEL SVG -->
+              <img id="easel-svg" class="evidence inactive" src="img/Easel.svg" onclick="evidenceSelect(2)"/>
+            </div>
+
+            <div class="evidence-svg-container" id="ECTO">
+              <!-- ECTO SVG -->
+              <img id="ecto-svg" class="evidence inactive" src="img/Ecto.svg" onclick="evidenceSelect(3)"/>
+            </div>
+
+            <div class="evidence-svg-container" id="FINGERS">
+              <!-- FINGERPRINTS SVG -->
+              <img id="fingerprints-svg" class="evidence inactive" src="img/Finger.svg" onclick="evidenceSelect(4)"/>
+            </div>
+
+            <div class="evidence-svg-container" id="SPIRIT">
+              <!-- SPIRITBOX SVG -->
+              <img id="spiritbox-svg" class="evidence inactive" src="img/Spirit.svg" onclick="evidenceSelect(5)"/>
+            </div>
+
+            <div class="evidence-svg-container" id="FREEZE">
+              <!-- FREEZE SVG -->
+              <img id="freeze-svg" class="evidence inactive" src="img/Freeze.svg" onclick="evidenceSelect(6)"/>
+            </div>
+          </div>
+
+          <div class="flex-row divider-width divider-color divider-type" style="margin: -55px; margin-top: 50">
+            <!-- CONCLUSION SECTION -->
+            <div class="flex-grow" id="conclusion-container" onclick="reset()">
+              <div class="conclusion" id="conclusion">
+                <span class="conclusion" id="ghost-type">Searching...</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
